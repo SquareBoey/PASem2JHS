@@ -1,14 +1,35 @@
-hora = 0
-i= 0
-"""Aprednimosa implementar lo visto en las 2 clases anteriores
-ademas de esa imlpementacion pues vimos el uso de ciclos infinitos y
-tambien aprendi a usar esos tres apostrofes para abrir como el codigo de comentarios"""
+import re
+tasa_iva = 0.16
+class Producto():
+    existencia = 0
+    def __init__(self, nombre='', precio=0.0):
+        self.nombre = nombre
+        self.precio = precio
+        
+    def iva(self):
+        return self.precio * tasa_iva
 
-while True:
-    num = int(input("Ingresa un numero par"))
-    if num % 2 == 0:
-        hora += 1
-    else:
-        break
+    def entrada(self, cant):
+        self.existencia += cant
 
-print("Se contaron ",hora," numeros pares consecutivos")
+    def salida(self, cant):
+        if self.existencia >= cant:
+            self.existencia -= cant
+        else:
+            print('No se cuenta con existencias suficientes.')
+            cant = validaentero('Cantidad de unidades vendidas: ')
+            self.salida(cant)
+
+def validareal(s):
+    while True:
+        num = input(s)
+        if re.match(r'^[+]?\d*\.?\d*([E|e][+|-]?\d*)?$', num):
+            return float(num)
+        print('Debe ingresar un número real positivo.')
+
+def validaentero(s):
+    while True:
+        num = input(s)
+        if re.match(r'^[+]?\d+$', num):
+            return int(num)
+        print('Debe ingresar un número entero positivo.')
