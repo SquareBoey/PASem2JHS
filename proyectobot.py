@@ -49,4 +49,4 @@ async def say(ctx, *,dile):
     await ctx.channel.purge(limit =1)
     await ctx.send(dile)
 
-client.run('ODY2OTAyMTQzNTc5NzE3Njg0.YPZTiQ.IUkzgrWcLE16a4zPhoQJLW-0HeE')
+client.run('Token de su bot ')
