@@ -1,4 +1,4 @@
 import pandas as pd 
-import numpy as np 
 s = pd.Series(['matematicas','fisica','ingles','quimica','español'])
 print(s)
+#Solo es para que no me la hagan de show despueson #
